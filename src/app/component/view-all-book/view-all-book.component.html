@@ -1,0 +1,55 @@
+<app-navbar></app-navbar>
+<div class="conatiner mt-4">
+    <div class="row">
+        <div class="col-sm-3">
+
+        </div>
+        <div class="col-lg-9">
+<h1>Your book details</h1>
+<table class="table">
+    <thead>
+      <tr>
+        <th scope="col" class="text-center">#</th>
+        <th scope="col"  >Book Title</th>
+
+        <th scope="col">Book Quantity</th>
+        <th scope="col">Book Category</th>
+        <th scope="col">Book Price</th>
+        <th scope="col" class="text-center">Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let b of book">
+        <td class="text-center">SystemID: {{b.id}} </td>
+        <td class="text-center"><button (click)="onClick(b)"> {{b.title}}</button></td>
+        <td class="text-center"> {{b.quantity}}</td>
+        <td class="text-center">{{b.category}} </td>
+        <td class="text-center">{{b.price}}</td>
+        <td>
+            <button type="button" class="btn btn-primary btn-sm" (click)="onEdit(b)">Edit</button> 
+            &nbsp;&nbsp;&nbsp;
+            <button type="button" class="btn btn-secondary btn-sm" (click)="onDelete(b)">Delete</button>
+        </td>
+      </tr>
+       
+    </tbody>
+  </table>
+  <nav aria-label="Page navigation example">
+    <ul class="pagination justify-content-center">
+      <li class="page-item">
+        <button class="page-link"  [disabled]="first == true" (click)="onPrev()"> Prev</button>
+      </li>
+      <span *ngFor="let n of numArray">
+        <button class="page-link"   (click)="onPageNumberClick(n)"> {{n+1}}</button>
+      </span>
+      
+       
+      <li class="page-item">
+        <button class="page-link"  [disabled]="last == true" (click)="onNext()"> Next</button>
+      </li>
+    </ul>
+  </nav>
+        </div>
+       
+    </div>
+</div>
